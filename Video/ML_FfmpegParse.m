@@ -7,6 +7,7 @@ classdef ML_FfmpegParse
         % dispHeight, dispWidth: display height and width
         function [dispHeight, dispWidth] = getDispResolution(vidFile, varargin)
             videoStreamAttrs = ML_FfmpegParse.getAttrs(vidFile, varargin{:});
+            height = NaN; width = NaN; % default values
             for i=1:length(videoStreamAttrs)
                 if strcmp(videoStreamAttrs(i).Name, 'width')
                     width = str2double(videoStreamAttrs(i).Value);
